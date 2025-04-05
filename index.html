@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Button</title>
+</head>
+<body>
+    <figure class="wp-block-image size-full">
+        <a href="#" id="soundLink">
+            <img id="soundImage" 
+                 src="https://d.th-nuernberg.de/intern/wp-content/uploads/2025/04/pixil-frame-0-1-1.png" 
+                 alt="Clickable Image" 
+                 class="wp-image-54254"/>
+        </a>
+    </figure>
+
+    <audio id="clickSound" preload="auto">
+        <source src="https://d.th-nuernberg.de/intern/wp-content/uploads/2025/04/mixkit-little-squeak-1018.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let soundLink = document.getElementById("soundLink");
+            let sound = document.getElementById("clickSound");
+
+            if (soundLink && sound) {
+                soundLink.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    sound.volume = 0.5;
+                    sound.play();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
