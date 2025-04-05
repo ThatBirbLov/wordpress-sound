@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sound Button</title>
+    <title>Clickable Sound Image</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        img {
+            width: 400px; /* Adjust the size here */
+            height: auto;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+
+    <h2>Click the image to play a sound</h2>
+
     <figure class="wp-block-image size-full">
-        <a href="#" id="soundLink">
+        <a href="javascript:void(0);" onclick="playSound(event)">
             <img id="soundImage" 
-                 src="https://d.th-nuernberg.de/intern/wp-content/uploads/2025/04/pixil-frame-0-1-1.png" 
-                 alt="Clickable Image" 
-                 class="wp-image-54254"/>
+                 src="https://d.th-nuernberg.de/intern/wp-content/uploads/2025/04/pixil-frame-0-3.png" 
+                 alt="Clickable Image" />
         </a>
     </figure>
 
@@ -20,18 +34,13 @@
     </audio>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let soundLink = document.getElementById("soundLink");
+        function playSound(event) {
+            event.preventDefault(); // Prevents any unwanted behavior
             let sound = document.getElementById("clickSound");
-
-            if (soundLink && sound) {
-                soundLink.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    sound.volume = 0.5;
-                    sound.play();
-                });
-            }
-        });
+            sound.volume = 0.5; // Set volume to 50%
+            sound.play();
+        }
     </script>
+
 </body>
 </html>
